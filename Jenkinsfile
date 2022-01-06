@@ -17,10 +17,10 @@ ls | wc -l'''
 
     stage('Stage3') {
       steps {
-        sh '''if test `ls | wc -l` -e 2
+        sh '''if test `ls | wc -l` -eq 2
 then 
-grep modification gestion_utilisateurs tail -1
-grep modification gestion_groupes tail -1
+grep -A1 modification gestion_utilisateur 
+grep -A1 modification gestion_groupes
 fi 
 '''
       }
